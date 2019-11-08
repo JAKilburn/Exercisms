@@ -4,24 +4,30 @@ class RnaTranscription {
         if(dnaStrand.length() == 0) return dnaStrand;
 
         String[] dnArray = dnaStrand.split("");
-        String[] rnArray = new char[dnaStrand.length()];
-        for(char nuc: dnArray){
+        String[] rnArray = new String[dnaStrand.length()];
+        int i = 0;
+        for(String nuc: dnArray){
             switch(nuc){
                 case("A"):
-                    rnArray.push("U");
+                    rnArray[i] = "U";
+                    i++;
                     break;
                 case("C"):
-                    rnArray.push("G");
+                    rnArray[i] = "G";
+                    i++;
                     break;
                 case("G"):
-                    rnArray.push("C");
+                    rnArray[i] = "C";
+                    i++;
                     break;
                 case("T"):
-                    rnArray.push("A");
+                    rnArray[i] = "A";
+                    i++;
                     break;
                 default:
             }
         }
+        return String.join("", rnArray);
     }
 
 }
